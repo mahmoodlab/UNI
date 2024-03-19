@@ -162,14 +162,15 @@ Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3
 ## Reference
 If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://www.nature.com/articles/s41591-024-02857-3):
 
-Chen, R. J., Ding, T., Lu, M. Y., Williamson, D. F., Jaume, G., Chen, B., ... & Mahmood, F. (2024). Towards a general-purpose foundation model for computational pathology. Nature Medicine. 
+Chen, R.J., Ding, T., Lu, M.Y., Williamson, D.F.K., et al. Towards a general-purpose foundation model for computational pathology. Nat Med (2024). https://doi.org/10.1038/s41591-024-02857-3
 
 ```
 @article{chen2024uni,
-  title={Towards a General Pourpose Foundation Model for Computational Pathology},
+  title={Towards a General-Purpose Foundation Model for Computational Pathology},
   author={Chen, Richard J and Ding, Tong and Lu, Ming Y and Williamson, Drew FK and Jaume, Guillaume and Chen, Bowen and Zhang, Andrew and Shao, Daniel and Song, Andrew H and Shaban, Muhammad and others},
   journal={Nature Medicine},
-  publisher={Nature Publishing Group}
+  publisher={Nature Publishing Group},
+  year={2024}
 }
 ```
 

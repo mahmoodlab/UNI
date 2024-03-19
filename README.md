@@ -83,18 +83,17 @@ model, transform = get_encoder(enc_name='uni', device=device)
 
 ### 3. Running Inference
 
-With your model set to evaluation mode, you can use the UNI pretrained encoder to extract features from your favorite histopathology images, as follows:
+You can use the UNI pretrained encoder to extract features from histopathology ROIs, as follows:
+
 ```python
-### 3. Extracting features from image
 from PIL import Image
 image = Image.open("uni.jpg")
-Image = transform(image).unsqueeze(dim=0) # Image (torch.Tensor) with shape [1, 3, 224, 224] following image resizing and normalization (ImageNet parameters)
+image = transform(image).unsqueeze(dim=0) # Image (torch.Tensor) with shape [1, 3, 224, 224] following image resizing and normalization (ImageNet parameters)
 with torch.inference_mode():
-    feature_emb = model(img) # Extracted features (torch.Tensor) with shape [1,1024]
+    feature_emb = model(image) # Extracted features (torch.Tensor) with shape [1,1024]
 ```
 
-With this, you can use these pre-extracted features for ROI classification (via linear probing), slide classification (via multiple instance learning), and other machine learning settings.
-
+These pre-extracted features can then be used ROI classification (via linear probing), slide classification (via multiple instance learning), and other machine learning settings.
 
 
 ## Overview of specific usages

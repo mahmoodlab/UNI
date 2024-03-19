@@ -122,7 +122,7 @@ See [**./notebooks/uni_walkthrough.ipynb**](notebooks/uni_walkthrough.ipynb) to 
 </div>
 
 
-A detailed set of benchmarks are in the paper [[1]](https://www.nature.com/articles/s41591-024-02857-3) (also shown above). Some models were released after our study was in review. For a more comprehensive comparison, we have provided additional results on EBRAINS, PANDA, OncoTree, IHC ER / PR assessment, CRC-100K-Raw, and TCGA Uniform Tumor datasets as a representative set of benchmarks which cover a wide range of tissue types, diseases, difficulty levels (up to 108-classes) and staining (H&E and IHC).
+A detailed set of benchmarks are in the paper [[1]](https://www.nature.com/articles/s41591-024-02857-3) (also shown above). Some models were released after our study was in review. For a more comprehensive comparison, we have provided additional results on EBRAINS, PANDA, OncoTree, IHC ER / PR assessment, CRC-100K-Raw, and TCGA Uniform Tumor datasets as a representative set of benchmarks which cover a wide range of tissue types, diseases, difficulty levels (up to 108-classes) and staining (H&E and IHC). Results are reported using ABMIL and KNN (K=20) slide and ROI tasks respectively.
 
 Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3) and CONCH [[2]](https://www.nature.com/articles/s41591-024-02856-4) papers for more detailed benchmarking.
 

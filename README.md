@@ -129,7 +129,7 @@ Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3
 ### Slide Benchmarks
 | Model name     | Pretraining       |   EBRAINS-C (12 classes, Public)       |   EBRAINS-F (30 classes, Public)     |   PANDA (5 classes, Public) |   OncoTree-108 (108 classes, Internal) |   IHC ER / PR Assess. (6 classes, Internal)  |
 |:---------------|:------------------|---------------------------:|-------------------------:|-----------------:|------------------:|---------------------------:|
-|  |  | Balanced acc. | Quadratic-weight $\kappa$ | Balanced acc. | Balanced acc. | Quadratic-weight $\kappa$ |
+|  |  | Balanced acc. | Balanced acc. | Quadratic-weight $\kappa$ | Balanced acc. | Quadratic-weight $\kappa$ |
 | **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)            | Vision  |                      **0.883** |                    <ins>0.675</ins> |            <ins>0.946</ins> |             **0.538** |     0.785 |
 | **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language   |                      <ins>0.868</ins> |                    **0.689** |            0.934 |             <ins>0.515</ins> |       **0.819** |
 | Phikon [[3]](https://doi.org/10.1101/2023.07.21.23292757)         | Vision   |                      0.810  |                    0.659 |            **0.950**  |             0.486 |                      0.744 |  

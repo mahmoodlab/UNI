@@ -5,11 +5,11 @@
 
  [Journal Link](https://www.nature.com/articles/s41591-024-02857-3) | [Download Model](https://huggingface.co/MahmoodLab/uni) | [Cite](#reference) 
  
-**Abstract:** Tissue phenotyping is a fundamental computational pathology (CPath) task in learning objective characterizations of histopathologic biomarkers in anatomic pathology. However, whole-slide imaging (WSI) poses a complex computer vision problem in which the large-scale image resolutions of WSIs and the diversity of morphological phenotypes preclude large-scale data annotation. Current efforts have proposed using pretrained image encoders with either transfer learning from natural image datasets or self-supervised pretraining on publicly-available histopathology datasets, but have not been extensively developed and evaluated across diverse tissue types at scale. We introduce UNI, a general-purpose self-supervised model for pathology, pretrained using over 100 million images from over 100,000 diagnostic haematoxylin and eosin-stained WSIs (over 77TB of data) across 20 major tissue types. The model was evaluated on 34 representative CPath tasks of varying diagnostic difficulties. In addition to outperforming previous state-of-the-art models, we demonstrate new modeling capabilities in CPath such as resolution-agnostic tissue classification, slide classification using few-shot class prototypes, and disease subtyping generalization in classifying up to 108 cancer types in the OncoTree classification system. UNI advances unsupervised representation learning at scale in CPath in terms of both pretraining data and downstream evaluation, enabling data-efficient AI models that can generalize and transfer to a gamut of diagnostically challenging tasks and clinical workflows in anatomic pathology.
+**Abstract:** Quantitative evaluation of tissue images is crucial for computational pathology (CPath) tasks, requiring the objective characterization of histopathological entities from whole-slide images (WSIs). The high resolution of WSIs and the variability of morphological features present significant challenges, complicating the large-scale annotation of data for high-performance applications. To address this challenge, current efforts have proposed the use of pretrained image encoders through transfer learning from natural image datasets or self-supervised learning on publicly available histopathology datasets, but have not been extensively developed and evaluated across diverse tissue types at scale. We introduce UNI, a general-purpose self-supervised model for pathology, pretrained using more than 100 million images from over 100,000 diagnostic H&E-stained WSIs (>77 TB of data) across 20 major tissue types. The model was evaluated on 34 representative CPath tasks of varying diagnostic difficulty. In addition to outperforming previous state-of-the-art models, we demonstrate new modeling capabilities in CPath such as resolution-agnostic tissue classification, slide classification using few-shot class prototypes, and disease subtyping generalization in classifying up to 108 cancer types in the OncoTree classification system. UNI advances unsupervised representation learning at scale in CPath in terms of both pretraining data and downstream evaluation, enabling data-efficient artificial intelligence models that can generalize and transfer to a wide range of diagnostically challenging tasks and clinical workflows in anatomic pathology.
 
 ## What is UNI?
 
-UNI is the largest pretrained vision encoder for histopathology (100M images, 100K WSIs) _**developed on internal neoplastic, infectious, inflamatory and normal tissue and also made publicly availablee**_. We show state-of-the-art performance across 34 clinical tasks, with strong performance gains on rare and underrepresented cancer types.
+UNI is the largest pretrained vision encoder for histopathology (100M images, 100K WSIs) _**developed on internal neoplastic, infectious, inflamatory and normal tissue and also made publicly available**_. We show state-of-the-art performance across 34 clinical tasks, with strong performance gains on rare and underrepresented cancer types.
  - _**Why use UNI?**_: UNI does not use open datasets and large public histology slide collections (TCGA, CPTAC, PAIP, CAMELYON, PANDA, and others in TCIA) for pretraining, which are routinely used in benchmark development in computational pathology. We make UNI available for the research community in building and evaluating pathology AI models without risk of data contamination on public benchmarks or private histopathology slide collections.
 
 ## Installation
@@ -83,18 +83,17 @@ model, transform = get_encoder(enc_name='uni', device=device)
 
 ### 3. Running Inference
 
-With your model set to evaluation mode, you can use the UNI pretrained encoder to extract features from your favorite histopathology images, as follows:
+You can use the UNI pretrained encoder to extract features from histopathology ROIs, as follows:
+
 ```python
-### 3. Extracting features from image
 from PIL import Image
 image = Image.open("uni.jpg")
-Image = transform(image).unsqueeze(dim=0) # Image (torch.Tensor) with shape [1, 3, 224, 224] following image resizing and normalization (ImageNet parameters)
+image = transform(image).unsqueeze(dim=0) # Image (torch.Tensor) with shape [1, 3, 224, 224] following image resizing and normalization (ImageNet parameters)
 with torch.inference_mode():
-    feature_emb = model(img) # Extracted features (torch.Tensor) with shape [1,1024]
+    feature_emb = model(image) # Extracted features (torch.Tensor) with shape [1,1024]
 ```
 
-With this, you can use these pre-extracted features for ROI classification (via linear probing), slide classification (via multiple instance learning), and other machine learning settings.
-
+These pre-extracted features can then be used ROI classification (via linear probing), slide classification (via multiple instance learning), and other machine learning settings.
 
 
 ## Overview of specific usages
@@ -123,14 +122,14 @@ See [**./notebooks/uni_walkthrough.ipynb**](notebooks/uni_walkthrough.ipynb) to 
 </div>
 
 
-A detailed set of benchmarks are in the paper [[1]](https://www.nature.com/articles/s41591-024-02857-3) (also shown above). Some models were released after our study was in review. For a more comprehensive comparison, we have provided additional results on EBRAINS, PANDA, OncoTree, IHC ER / PR assessment, CRC-100K-Raw, and TCGA Uniform Tumor datasets as a representative set of benchmarks which cover a wide range of tissue types, diseases, difficulty levels (up to 108-classes) and staining (H&E and IHC).
+A detailed set of benchmarks are in the paper [[1]](https://www.nature.com/articles/s41591-024-02857-3) (also shown above). Some models were released after our study was in review. For a more comprehensive comparison, we have provided additional results on EBRAINS, PANDA, OncoTree, IHC ER / PR assessment, CRC-100K-Raw, and TCGA Uniform Tumor datasets as a representative set of benchmarks which cover a wide range of tissue types, diseases, difficulty levels (up to 108-classes) and staining (H&E and IHC). Results are reported using ABMIL and KNN (K=20) slide and ROI tasks respectively.
 
 Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3) and CONCH [[2]](https://www.nature.com/articles/s41591-024-02856-4) papers for more detailed benchmarking.
 
 ### Slide Benchmarks
 | Model name     | Pretraining       |   EBRAINS-C (12 classes, Public)       |   EBRAINS-F (30 classes, Public)     |   PANDA (5 classes, Public) |   OncoTree-108 (108 classes, Internal) |   IHC ER / PR Assess. (6 classes, Internal)  |
 |:---------------|:------------------|---------------------------:|-------------------------:|-----------------:|------------------:|---------------------------:|
-|  |  | Balanced acc. | Quadratic-weight $\kappa$ | Balanced acc. | Balanced acc. | Quadratic-weight $\kappa$ |
+|  |  | Balanced acc. | Balanced acc. | Quadratic-weight $\kappa$ | Balanced acc. | Quadratic-weight $\kappa$ |
 | **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)            | Vision  |                      **0.883** |                    <ins>0.675</ins> |            <ins>0.946</ins> |             **0.538** |     0.785 |
 | **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language   |                      <ins>0.868</ins> |                    **0.689** |            0.934 |             <ins>0.515</ins> |       **0.819** |
 | Phikon [[3]](https://doi.org/10.1101/2023.07.21.23292757)         | Vision   |                      0.810  |                    0.659 |            **0.950**  |             0.486 |                      0.744 |  
@@ -158,18 +157,22 @@ Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3
 ⓒ Mahmood Lab. This model and associated code are released under the [CC-BY-NC-ND 4.0]((https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en)) license and may only be used for non-commercial, academic research purposes with proper attribution. Any commercial use, sale, or other monetization of the UNI model and its derivatives, which include models trained on outputs from the UNI model or datasets created from the UNI model, is prohibited and requires prior approval. Downloading the model requires prior registration on Hugging Face and agreeing to the terms of use. By downloading this model, you agree not to distribute, publish or reproduce a copy of the model. If another user within your organization wishes to use the UNI model, they must register as an individual user and agree to comply with the terms of use. Users may not attempt to re-identify the deidentified data used to develop the underlying model. If you are a commercial entity, please contact the corresponding author or Mass General Brigham Innovation Office.
 
 
+## Acknowledgements
+The project was built on top of amazing repositories such as [ViT](https://github.com/google-research/big_vision), [DINOv2](https://github.com/facebookresearch/dinov2), [LGSSL](https://github.com/mbanani/lgssl),  and [Timm](https://github.com/huggingface/pytorch-image-models/) (ViT model implementation). We thank the authors and developers for their contribution. 
+
 
 ## Reference
 If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://www.nature.com/articles/s41591-024-02857-3):
 
-Chen, R. J., Ding, T., Lu, M. Y., Williamson, D. F., Jaume, G., Chen, B., ... & Mahmood, F. (2024). Towards a general-purpose foundation model for computational pathology. Nature Medicine. 
+Chen, R.J., Ding, T., Lu, M.Y., Williamson, D.F.K., et al. Towards a general-purpose foundation model for computational pathology. Nat Med (2024). https://doi.org/10.1038/s41591-024-02857-3
 
 ```
 @article{chen2024uni,
-  title={Towards a General Pourpose Foundation Model for Computational Pathology},
+  title={Towards a General-Purpose Foundation Model for Computational Pathology},
   author={Chen, Richard J and Ding, Tong and Lu, Ming Y and Williamson, Drew FK and Jaume, Guillaume and Chen, Bowen and Zhang, Andrew and Shao, Daniel and Song, Andrew H and Shaban, Muhammad and others},
   journal={Nature Medicine},
-  publisher={Nature Publishing Group}
+  publisher={Nature Publishing Group},
+  year={2024}
 }
 ```
 

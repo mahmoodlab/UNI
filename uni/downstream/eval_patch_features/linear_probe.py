@@ -87,7 +87,7 @@ def eval_linear_probe(
     del classifier
     torch.cuda.empty_cache()
     if verbose:
-        print(f"Time taken {time.time() - start:.2f}")
+        print(f"Linear Probe Evaluation: Time taken {time.time() - start:.2f}")
     return results, dump
 
 
@@ -110,14 +110,14 @@ def train_linear_probe(
     NUM_C = len(set(train_labels.cpu().numpy()))
     cost = (train_feats.shape[1] * NUM_C) / 100
     if verbose:
-        print(f"Best cost = {cost:.3f}")
+        print(f"Linear Probe Evaluation (Train Time): Best cost = {cost:.3f}")
 
     # train final classifier
     if combine_trainval and (valid_feats is not None):
         trainval_feats = torch.cat([train_feats, valid_feats], dim=0)
         trainval_labels = torch.cat([train_labels, valid_labels], dim=0)
         if verbose:
-            print("Combining train and validation sets for final training. Trainval Shape: ", trainval_feats.shape)
+            print("Linear Probe Evaluation (Train Time): Combining train and validation sets for final training. Trainval Shape: ", trainval_feats.shape)
 
         final_classifier = _fit_logreg(
             trainval_feats,
@@ -129,7 +129,7 @@ def train_linear_probe(
         )
     else:
         if verbose:
-            print("Using only train shape for evaluation. Train Shape: ", train_feats.shape)
+            print("Linear Probe Evaluation (Train Time): Using only train set for evaluation. Train Shape: ", train_feats.shape)
 
         final_classifier = _fit_logreg(
             train_feats, 
@@ -217,7 +217,10 @@ def _fit_logreg(
     return classifier
 
 
-def split_trainval(targets: List[int], val_percentage: float) -> Dict[List[int], List[int]]:
+def split_trainval(
+        targets: List[int], 
+        val_percentage: float
+) -> Dict[List[int], List[int]]:
     """
     Split the dataset into training and validation sets based on the given validation percentage.
 

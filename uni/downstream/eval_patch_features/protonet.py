@@ -1,17 +1,15 @@
 """
 Implementation adapted from: https://github.com/mbanani/lgssl/blob/df45bae647fc24dce8a6329eb697944053e9a8a0/lgssl/evaluation/fewshot.py#L9C3-L9C3
 """
-import torch
-import numpy as np
-from torch.nn.functional import normalize
-import faiss
-import pandas as pd
-from threadpoolctl import threadpool_limits
 from typing import Tuple
+
+import faiss
 import numpy as np
-import torch
-import torch
+import pandas as pd
 import sklearn.cluster
+from threadpoolctl import threadpool_limits
+import torch
+from torch.nn.functional import normalize
 
 class ProtoNet:
     """

@@ -1,15 +1,13 @@
-import pickle
 import datetime
-from tqdm import tqdm
 import logging
-import h5py
-import numpy as np
-
-from PIL.ImageFile import ImageFile
-from PIL import Image, ImageOps
-from typing import List, Tuple
-from PIL import Image
+import pickle
 from typing import Any, Dict, Union
+from typing import List, Tuple
+
+import numpy as np
+from PIL import Image, ImageOps
+from PIL.ImageFile import ImageFile
+from tqdm import tqdm
 
 def scale_img(
         img: ImageFile, 

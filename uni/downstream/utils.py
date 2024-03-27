@@ -2,7 +2,6 @@ import pickle
 import datetime
 from tqdm import tqdm
 import logging
-import h5py
 import numpy as np
 
 from PIL.ImageFile import ImageFile

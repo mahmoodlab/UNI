@@ -1,8 +1,8 @@
 # modified from Pytorch official resnet.py
-import torch.nn as nn
-import torch.utils.model_zoo as model_zoo
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
+import torch.utils.model_zoo as model_zoo
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152']

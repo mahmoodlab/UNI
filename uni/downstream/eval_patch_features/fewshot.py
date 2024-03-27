@@ -4,15 +4,17 @@ Adapted from https://github.com/mbanani/lgssl/blob/df45bae647fc24dce8a6329eb6979
 """
 
 import logging
+from typing import Any, List, Tuple
+
 import numpy as np
 import pandas as pd
+import sklearn.neighbors
 import torch
 from torch.nn.functional import normalize
 from torch.utils.data import Sampler
 from tqdm import tqdm
-import sklearn.neighbors
+
 from .metrics import get_eval_metrics
-from typing import Any, List, Tuple
 
 
 def eval_knn(

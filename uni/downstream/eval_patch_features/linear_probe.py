@@ -9,19 +9,16 @@ from __future__ import annotations
 import random
 import time
 from collections import defaultdict
+from typing import Tuple, Dict, Any, List
 from warnings import simplefilter
 
 import torch
 import torch.utils.data
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LogisticRegression as sk_LogisticRegression
+
 from .logistic_regression import LogisticRegression
 from .metrics import get_eval_metrics
-
-from collections import defaultdict
-import random
-from typing import Tuple, Dict, Any, List
-import torch
 
 
 # Silence repeated convergence warnings from scikit-learn logistic regression.

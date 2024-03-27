@@ -1,7 +1,7 @@
 import numpy as np
-from tqdm import tqdm
 import torch
 import torch.multiprocessing
+from tqdm import tqdm
 
 from ..get_encoder import get_encoder
 

@@ -1,12 +1,12 @@
 import os
 import logging
 
+import timm
 import torch
 import torch.nn as nn
 from torchvision import transforms
 
 from .models.resnet50_trunc import resnet50_trunc_imagenet
-import timm
 
 def get_norm_constants(which_img_norm: str = 'imagenet'):
     constants_zoo = {

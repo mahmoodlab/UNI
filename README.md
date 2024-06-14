@@ -130,27 +130,29 @@ Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3
 | Model name     | Pretraining       |   EBRAINS-C (12 classes, Public)       |   EBRAINS-F (30 classes, Public)     |   PANDA (5 classes, Public) |   OncoTree-108 (108 classes, Internal) |   IHC ER / PR Assess. (6 classes, Internal)  |
 |:---------------|:------------------|---------------------------:|-------------------------:|-----------------:|------------------:|---------------------------:|
 |  |  | Balanced acc. | Balanced acc. | Quadratic-weight $\kappa$ | Balanced acc. | Quadratic-weight $\kappa$ |
-| **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)            | Vision  |                      **0.883** |                    <ins>0.675</ins> |            <ins>0.946</ins> |             **0.538** |     0.785 |
-| **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language   |                      <ins>0.868</ins> |                    **0.689** |            0.934 |             <ins>0.515</ins> |       **0.819** |
-| Phikon [[3]](https://doi.org/10.1101/2023.07.21.23292757)         | Vision   |                      0.810  |                    0.659 |            **0.950**  |             0.486 |                      0.744 |  
-| REMEDIS [[4]](https://doi.org/10.1038/s41551-023-01049-7)     | Vision   |                      0.687 |                    0.382 |            0.932 |             0.412 |                      0.762 |   
-| CTransPath [[5]](https://doi.org/10.1016/j.media.2022.102559)     | Vision   |                      0.666 |                    0.514 |            0.927 |             0.399 |                      <ins>0.786<ins> | 
-| Quilt-Net [[6]](https://proceedings.neurips.cc/paper_files/paper/2023/file/775ec578876fa6812c062644964b9870-Paper-Datasets_and_Benchmarks.pdf)          | Vision-language   |                      0.728 |                    0.608 |            0.909 |             0.389 |                      0.784 | 
-| PLIP [[7]](https://doi.org/10.1038/s41591-023-02504-3)           | Vision-language   |                      0.683 |                    0.562 |            0.901 |             0.369 |                      0.759 | 
-| ResNet-50 (Tr) [[8]](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) | ImageNet Transfer |                      0.302 |                    0.219 |            0.831 |             0.148 |                      0.709 |
+| **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)            | Vision  |                      **0.883** |                    0.675 |            <ins>0.946</ins> |             **0.538** |     0.785 |
+| **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language   |                      0.868 |                    **0.689** |            0.934 |             0.515 |       <ins>0.819</ins> |
+| Prov-GigaPath [[3]](https://www.nature.com/articles/s41586-024-07441-w)            | Vision  |                      <ins>0.875</ins> |                    <ins>0.687</ins> |            0.942 |             <ins>0.522</ins> |     **0.821** |
+| Phikon [[4]](https://doi.org/10.1101/2023.07.21.23292757)         | Vision   |                      0.810  |                    0.659 |            **0.950**  |             0.486 |                      0.744 |  
+| REMEDIS [[5]](https://doi.org/10.1038/s41551-023-01049-7)     | Vision   |                      0.687 |                    0.382 |            0.932 |             0.412 |                      0.762 |   
+| CTransPath [[6]](https://doi.org/10.1016/j.media.2022.102559)     | Vision   |                      0.666 |                    0.514 |            0.927 |             0.399 |                      0.786 | 
+| Quilt-Net [[7]](https://proceedings.neurips.cc/paper_files/paper/2023/file/775ec578876fa6812c062644964b9870-Paper-Datasets_and_Benchmarks.pdf)          | Vision-language   |                      0.728 |                    0.608 |            0.909 |             0.389 |                      0.784 | 
+| PLIP [[8]](https://doi.org/10.1038/s41591-023-02504-3)           | Vision-language   |                      0.683 |                    0.562 |            0.901 |             0.369 |                      0.759 | 
+| ResNet-50 (Tr) [[9]](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) | ImageNet Transfer |                      0.302 |                    0.219 |            0.831 |             0.148 |                      0.709 |
 
 ### ROI Benchmarks
 | Model name     | Pretraining       |   CRC-100K-Raw (9 classes, Public)           |  TCGA Uniform Tumor (32 classes, Public)      |
 |:---------------|:------------------|---------------------------:|-------------------------:|
 |  |  | Balanced acc. | Balanced acc. |
-| **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)        | Vision            |             <ins>0.925</ins>          |                **0.595** |
+| **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)        | Vision            |             0.925          |                **0.595** |
 | **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language      |            **0.941**      |                    <ins>0.556</ins> |
-| Phikon [[3]](https://doi.org/10.1101/2023.07.21.23292757)          | Vision            |             0.845          |                    0.533 |
-| REMEDIS [[4]](https://doi.org/10.1038/s41551-023-01049-7)        | Vision            |             0.908          |                    0.541 |
-| CTransPath [[5]](https://doi.org/10.1016/j.media.2022.102559)     | Vision            |             0.836          |                    0.463 |
-| Quilt-Net [[6]](https://proceedings.neurips.cc/paper_files/paper/2023/file/775ec578876fa6812c062644964b9870-Paper-Datasets_and_Benchmarks.pdf)     | Vision-language   |                      0.878 |                    0.359 |
-| PLIP [[7]](https://doi.org/10.1038/s41591-023-02504-3)          | Vision-language   |                      0.840 |                    0.370 |
-| ResNet-50  [[8]](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)    | ImageNet Transfer |                      0.797 |                    0.318 | 
+| Prov-GigaPath [[3]](https://www.nature.com/articles/s41586-024-07441-w)        | Vision            |             <ins>0.929</ins>          |                0.550 |
+| Phikon [[4]](https://doi.org/10.1101/2023.07.21.23292757)          | Vision            |             0.845          |                    0.533 |
+| REMEDIS [[5]](https://doi.org/10.1038/s41551-023-01049-7)        | Vision            |             0.908          |                    0.541 |
+| CTransPath [[6]](https://doi.org/10.1016/j.media.2022.102559)     | Vision            |             0.836          |                    0.463 |
+| Quilt-Net [[7]](https://proceedings.neurips.cc/paper_files/paper/2023/file/775ec578876fa6812c062644964b9870-Paper-Datasets_and_Benchmarks.pdf)     | Vision-language   |                      0.878 |                    0.359 |
+| PLIP [[8]](https://doi.org/10.1038/s41591-023-02504-3)          | Vision-language   |                      0.840 |                    0.370 |
+| ResNet-50  [[9]](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)    | ImageNet Transfer |                      0.797 |                    0.318 | 
 
 ## License and Terms of Tuse
 

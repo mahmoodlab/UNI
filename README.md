@@ -145,8 +145,8 @@ Please refer to the UNI [[1]](https://www.nature.com/articles/s41591-024-02857-3
 |:---------------|:------------------|---------------------------:|-------------------------:|
 |  |  | Balanced acc. | Balanced acc. |
 | **UNI** [[1]](https://www.nature.com/articles/s41591-024-02857-3)        | Vision            |             0.925          |                **0.595** |
-| **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language      |            **0.941**      |                    <ins>0.556</ins> |
-| Prov-GigaPath [[3]](https://www.nature.com/articles/s41586-024-07441-w)        | Vision            |             <ins>0.929</ins>          |                0.550 |
+| **CONCH** [[2]](https://www.nature.com/articles/s41591-024-02856-4)         | Vision-language      |            **0.941**      |                    0.556 |
+| Prov-GigaPath [[3]](https://www.nature.com/articles/s41586-024-07441-w)        | Vision            |             <ins>0.929</ins>          |                <ins>0.593</ins> |
 | Phikon [[4]](https://doi.org/10.1101/2023.07.21.23292757)          | Vision            |             0.845          |                    0.533 |
 | REMEDIS [[5]](https://doi.org/10.1038/s41551-023-01049-7)        | Vision            |             0.908          |                    0.541 |
 | CTransPath [[6]](https://doi.org/10.1016/j.media.2022.102559)     | Vision            |             0.836          |                    0.463 |

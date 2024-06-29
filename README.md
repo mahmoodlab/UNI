@@ -12,6 +12,10 @@
 UNI is the largest pretrained vision encoder for histopathology (100M images, 100K WSIs) _**developed on internal neoplastic, infectious, inflamatory and normal tissue and also made publicly available**_. We show state-of-the-art performance across 34 clinical tasks, with strong performance gains on rare and underrepresented cancer types.
  - _**Why use UNI?**_: UNI does not use open datasets and large public histology slide collections (TCGA, CPTAC, PAIP, CAMELYON, PANDA, and others in TCIA) for pretraining, which are routinely used in benchmark development in computational pathology. We make UNI available for the research community in building and evaluating pathology AI models without risk of data contamination on public benchmarks or private histopathology slide collections.
 
+## Updates
+
+- **06/15/2024**: Included comparisons with [Prov-GigaPath](https://www.nature.com/articles/s41586-024-07441-w) 
+
 ## Installation
 First clone the repo and cd into the directory:
 ```shell

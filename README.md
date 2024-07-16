@@ -14,7 +14,7 @@ UNI is the largest pretrained vision encoder for histopathology (100M images, 10
 
 ## Updates
 
-- **06/15/2024**: Included comparisons with Prov-GigaPath. 
+- **06/15/2024**: Included comparisons with [Prov-GigaPath](https://github.com/mahmoodlab/UNI?tab=readme-ov-file#slide-benchmarks). 
 
 ## Installation
 First clone the repo and cd into the directory:

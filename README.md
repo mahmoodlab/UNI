@@ -9,6 +9,8 @@
 - **01/14/2025: UNI 2 model weights, benchmark results and pre-extracted embeddings are released.**
 - 03/19/2024: UNI is published! Model weights and initial benchmark results are released.
 
+UNI 2 was trained on over 200 million pathology H&E and IHC images sampled from 350+ thousand diverse whole slide images.
+
 Unfamiliar with UNI? Please refer to the original README ([here](./README_old.md)) for more details or refer to the accompanying Nature Medicine study ([here](https://www.nature.com/articles/s41591-024-02857-3)).
 
 

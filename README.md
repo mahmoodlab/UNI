@@ -3,10 +3,10 @@
 ## Towards a General-Purpose Foundation Model for Computational Pathology
 *Nature Medicine* <img src=".github/uni.jpg" width="300px" align="right" />
 
-[Journal Link](https://www.nature.com/articles/s41591-024-02857-3) | [Open Access Read Link](https://rdcu.be/dBMgh) | [Download Models](#model-weights) | [Cite](#reference) 
+[Journal Link](https://www.nature.com/articles/s41591-024-02857-3) | [Open Access Read Link](https://rdcu.be/dBMgh) | [Download Models](#model-weights) | [Download Pre-extracted Embeddings](#pre-extracted-embeddings) | [Cite](#reference) 
 
 ### Updates
-- **01/14/2025: UNI 2 model weights and benchmark results are released.**
+- **01/14/2025: UNI 2 model weights, benchmark results and pre-extracted embeddings are released.**
 - 03/19/2024: UNI is published! Model weights and initial benchmark results are released.
 
 Unfamiliar with UNI? Please refer to the original README ([here](./README_old.md)) for more details or refer to the accompanying Nature Medicine study ([here](https://www.nature.com/articles/s41591-024-02857-3)).
@@ -19,7 +19,8 @@ Unfamiliar with UNI? Please refer to the original README ([here](./README_old.md
 | UNI          |   03/2024        | ViT-l/16                 | [HF Link](https://huggingface.co/MahmoodLab/uni)  |
 
 
-
+## Pre-extracted Embeddings
+To facilitate downstream tasks, we provide pre-extracted embeddings for the UNI 2 model (UNI2-h) for TCGA, CPTAC and PANDA, which can be downloaded [here](https://huggingface.co/datasets/MahmoodLab/UNI2-h-features).
 
 ## Benchmarking UNI 2
 

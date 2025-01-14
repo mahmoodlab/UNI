@@ -3,11 +3,14 @@ Implementation adapted from: https://github.com/mbanani/lgssl/blob/df45bae647fc2
 """
 from typing import Tuple
 
-import faiss
+try:
+    import faiss
+    HAS_FAISS = True
+except ImportError:
+    HAS_FAISS = False
+
 import numpy as np
 import pandas as pd
-import sklearn.cluster
-from threadpoolctl import threadpool_limits
 import torch
 from torch.nn.functional import normalize
 
@@ -201,6 +204,7 @@ class ProtoNet:
             D (torch.Tensor): [C x topk]-dim distance vector aligned with X_nearest (C: num classes, topk: num queries to retrieve)
             I (torch.Tensor): [C x topk]-dim index vector aligned with X_nearest (C: num classes, topk: num queries to retrieve)
         """
+        assert HAS_FAISS, "faiss not available. To install faiss-gpu: `pip install faiss-gpu`"
         feats_query = X
 
         if self.center_feats:
@@ -236,6 +240,7 @@ class ProtoNet:
             D (np.ndarray): [N x topk]-dim distance matrix (N: num samples, topk: top-k similar prototypes to retrieve)
             I (np.ndarray): [N x topk]-dim index matrix (N: num samples, topk: top-k similar prototypes to retrieve)
         """
+        assert HAS_FAISS, "faiss not available. To install faiss-gpu: `pip install faiss-gpu`"
         feats_query = X
 
         if self.center_feats:

@@ -2,6 +2,7 @@ checkpoints/
 dataset_csvs/
 assets/data/tcga_luadlusc/
 assets/data/CRC100K/
+LOCAL:*
 
 tests/data/
 *.pt

@@ -54,7 +54,7 @@ def get_eval_transforms(
 
 
 def get_encoder(
-        enc_name='vit_large_patch16_224.dinov2.uni_mass100k', 
+        enc_name='uni2-h', 
         checkpoint='pytorch_model.bin',
         which_img_norm='imagenet', 
         img_resize=224, 
@@ -79,7 +79,8 @@ def get_encoder(
 
     enc_name_presets = {
         'resnet50_trunc': ('resnet50.supervised.trunc_in1k_transfer', None, 'imagenet'),
-        'uni': ('vit_large_patch16_224.dinov2.uni_mass100k', 'pytorch_model.bin', 'imagenet'),
+        'uni': ('uni', 'pytorch_model.bin', 'imagenet'),
+        'uni2-h': ('uni2-h', 'pytorch_model.bin', 'imagenet')
     }
     
     if enc_name in enc_name_presets.keys():
@@ -94,7 +95,7 @@ def get_encoder(
         assert which_img_norm == 'imagenet'
 
     ### UNI
-    elif enc_name == 'vit_large_patch16_224.dinov2.uni_mass100k':
+    elif enc_name == 'uni':
         ckpt_dir = os.path.join(assets_dir, enc_name)
         ckpt_path = os.path.join(assets_dir, enc_name, checkpoint)
         assert which_img_norm == 'imagenet'
@@ -110,6 +111,35 @@ def get_encoder(
             'patch_size': 16, 
             'init_values': 1e-5, 
             'num_classes': 0, 
+            'dynamic_img_size': True
+        }
+        model = timm.create_model(**uni_kwargs)
+        state_dict = torch.load(ckpt_path, map_location="cpu")
+        missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=True)
+    elif enc_name == 'uni2-h':
+        ckpt_dir = os.path.join(assets_dir, enc_name)
+        ckpt_path = os.path.join(assets_dir, enc_name, checkpoint)
+        assert which_img_norm == 'imagenet'
+        if not os.path.isfile(ckpt_path):
+            from huggingface_hub import login, hf_hub_download
+            login() # login with your User Access Token, found at https://huggingface.co/settings/tokens
+            os.makedirs(ckpt_dir, exist_ok=True)
+            hf_hub_download('MahmoodLab/UNI2-h', filename="pytorch_model.bin", local_dir=ckpt_dir, force_download=True)
+
+        uni_kwargs = {
+            'model_name': 'vit_giant_patch14_224',
+            'img_size': 224, 
+            'patch_size': 14, 
+            'depth': 24,
+            'num_heads': 24,
+            'init_values': 1e-5, 
+            'embed_dim': 1536,
+            'mlp_ratio': 2.66667*2,
+            'num_classes': 0, 
+            'no_embed_class': True,
+            'mlp_layer': timm.layers.SwiGLUPacked, 
+            'act_layer': torch.nn.SiLU, 
+            'reg_tokens': 8, 
             'dynamic_img_size': True
         }
         model = timm.create_model(**uni_kwargs)

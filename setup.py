@@ -12,7 +12,7 @@ setup(
     license='CC BY-NC 4.0',
     packages=find_packages(exclude=['__dep__', 'assets']),
     install_requires=["torch>=2.0.1", "torchvision", "timm==0.9.8", 
-                      "numpy", "pandas", "scikit-learn", "tqdm",
+                      "numpy<2", "pandas", "scikit-learn", "tqdm",
                       "transformers"],
 
     classifiers = [

@@ -241,6 +241,8 @@ To facilitate downstream tasks, we provide pre-extracted embeddings for the UNI 
 
 In each task, for each model, we sweep over 3 learning rates (1e-5, 5e-5, 1e-4) and report the test performance corresponding to the best performing model on the validation set.
 
+For all assessments, all models are evaluated using the global representation (e.g. CLS token) without test time augmentation.
+
 ## Installation
 First clone the repo and cd into the directory:
 ```shell

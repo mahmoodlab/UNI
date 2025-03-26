@@ -340,6 +340,8 @@ conda activate UNI
 pip install -e .
 ```
 
+To use [uni/downstream/eval_patch_features/protonet.py](./uni/downstream/eval_patch_features/protonet.py) and run the corresponding part of the [walkthrough notebook](./notebooks/uni_walkthrough.ipynb) you also need to [install faiss](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md).
+
 
 ### 1. Getting access
 Request access to the model weights from the Huggingface model page using links provided in the [Model Weights](#model-weights) section. You will need to login to Huggingface to download the model weights. 
